@@ -1,0 +1,38 @@
+<nav class="navbar-list navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">
+				<img src="/public/images/logo.png" alt="webdqblog">
+			</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="/">首页</a></li>
+				<li><a href="/articles/list">所有文章</a></li>
+				<% if(!user){ %>
+				<li><a href="/users/login">登录</a></li>
+				<li><a href="/users/reg">注册</a></li>
+				<% }else{ %>
+				<li class="user dropdown">
+					<a id="userAvatar" class="user-avatar" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<img class="img-circle img-responsive" src="<%= user.avatar %>" width="40" height="40">
+					</a>
+					<ul class="user-list dropdown-menu" aria-labelledby="userAvatar">
+						<li><a href="/users/center">个人中心</a></li>
+						<li><a href="/users/article?pageNum=1&pageSize=10">我的文章</a></li>
+						<li><a href="/users/article/add">发表文章</a></li>
+						<li><a href="/users/logout">退出</a></li>
+					</ul>
+				</li>
+				<% } %>
+			</ul>
+		</div>
+	</div>
+</nav>

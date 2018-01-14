@@ -1,0 +1,22 @@
+body{
+  background: url(../images/login_bg.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+.main{
+  padding-top: 90px;
+  padding-bottom: 40px;
+}
+.content-wrap{
+  padding-top: 100px;
+  padding-bottom: 370px;
+}
+.content{
+  padding: 30px;
+  background: rgba(255,255,255,.8);
+  border-radius: 5px;
+  border: 1px solid #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,.2);
+}
+.form-group{
+  margin-bottom: 30px;
+}

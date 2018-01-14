@@ -1,0 +1,127 @@
+body {
+  font-family:serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  background: #f9f9f9;
+}
+a {
+  color: #d12b2b;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+a:hover, a:active, a:focus {
+  color: #d12b2b;
+  outline: none;
+  text-decoration: none;
+}
+::-webkit-selection {
+  color: #fff;
+  background: #d12b2b;
+}
+::-moz-selection {
+  color: #fff;
+  background: #d12b2b;
+}
+::selection {
+  color: #fff;
+  background: #d12b2b;
+}
+
+.header{
+  position: relative;
+}
+.navbar-list{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1030;
+  background-color: rgba(0,0,0,.7);
+  border-color: #222;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.navbar-list .navbar-nav>li>a{
+  color: #fff;
+}
+.navbar-list .navbar-nav>li>a:focus, .navbar-list .navbar-nav>li>a:hover{
+  background-color: transparent;
+  color: #fff;
+}
+.navbar-list .navbar-nav>.active>a, .navbar-list .navbar-nav>.active>a:focus, .navbar-list .navbar-nav>.active>a:hover{
+  background-color: transparent;
+  color: #d12b2b;
+}
+.navbar-list .navbar-nav>.open>a, .navbar-list .navbar-nav>.open>a:focus, .navbar-list .navbar-nav>.open>a:hover{
+  background-color: transparent;
+}
+.navbar-brand{
+  padding: 0;
+}
+.navbar-nav>li>a.user-avatar{
+  padding: 5px;
+}
+.user-list{
+  background-color: rgba(0,0,0,.7);
+  border: 1px solid #222;
+}
+.user-list li + li{
+  border-top: 1px solid #333;
+}
+/* .user-list a{
+  border-bottom: 1px solid #111;
+} */
+.user-list.dropdown-menu>li>a{
+  color: #ddd;
+}
+.user-list.dropdown-menu>li>a:focus, .user-list.dropdown-menu>li>a:hover{
+  color: #222;
+  background-color: #ddd;
+}
+.navbar-list .navbar-toggle{
+  border: 1px solid #ccc;
+}
+.navbar-list .navbar-toggle .icon-bar{
+  background-color: #fff;
+}
+.navbar-list .navbar-toggle:focus, .navbar-list .navbar-toggle:hover{
+  background-color: transparent;
+}
+.navbar-list .navbar-collapse, .navbar-list .navbar-form{
+  border-color: #222;
+}
+
+.footer{
+  padding: 10px;
+  background: #222;
+  text-align: center;
+}
+.footer .col-sm-3 + .col-sm-3{
+  border-left: 1px dashed #333;
+}
+
+.btn-ok{
+  background: #d12b2b;
+  color: #fff;
+}
+.btn-cancel{
+  background: #ccc;
+  color: #fff;
+}
+.btn-ok:hover,
+.btn-ok:focus,
+.btn-cancel:hover,
+.btn-cancel:focus{
+  color: #fff;
+}
+
+.pagination>li>a, .pagination>li>span{
+  color: #d12b2b;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+  background-color: #d12b2b;
+  border-color: #d12b2b;
+}
+/* 公用样式 */

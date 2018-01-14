@@ -1,0 +1,26 @@
+.main{
+  padding-top: 90px;
+  padding-bottom: 40px;
+}
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+  background-color: #d12b2b;
+  border-color: #d12b2b;
+}
+.panel{
+  border: 1px solid #f8f9f9;
+  box-shadow: 0 3px 10px rgba(0,0,0,.1);
+  min-height: 700px;
+}
+.panel-heading{
+  border-bottom: 1px solid #eee;
+}
+.panel-heading h4{
+  padding-left: 10px;
+  border-left: 2px solid #d12b2b;
+}
+.user-cont{
+
+}
+.editormd-fullscreen{
+  z-index: 1031;
+}

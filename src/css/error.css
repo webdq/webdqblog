@@ -1,0 +1,13 @@
+.main{
+  padding-top: 90px;
+  padding-bottom: 40px;
+}
+.panel{
+  min-height: 650px;
+}
+.panel{
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 1px 4px 8px rgba(0,0,0,.1);
+}

@@ -1,0 +1,79 @@
+.main{
+  padding-top: 90px;
+  padding-bottom: 40px;
+}
+.main .panel{
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 4px 8px rgba(0,0,0,.1);
+}
+.main .panel-body{
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+}
+.article .panel-body{
+  min-height: 600px;
+}
+
+.post-item{
+
+}
+.post-user{
+  padding-bottom: 10px;
+}
+.post-desc{
+  min-height: 100px;
+
+}
+.post-title{
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.post-des{
+
+}
+.post-date{
+  padding-top: 10px;
+}
+.posted{
+  color: #888;
+}
+
+.article-title{
+  font-size: 24px;
+  text-align: center;
+  color: #d12b2b;
+}
+.article-date{
+  font-size: 18px;
+  text-align: right;
+  color: #888;
+}
+.article-content img{
+  max-width: 100%;
+  height: auto;
+}
+
+.comment-add{
+  margin-bottom: 20px;
+}
+.comment-title{
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+.comment-text{
+	margin-bottom: 5px;
+}
+.comment-date{
+	color: #888;
+}
+.comment-list .media{
+	margin-top: 0;
+	padding: 10px 0;
+}
+.comment-list .media + .media{
+	border-top: 1px solid #ddd;
+}

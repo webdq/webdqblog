@@ -1,0 +1,83 @@
+.navbar-list{
+  background-color: rgba(0,0,0,.6);
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img{
+  margin: 0 auto;
+}
+.carousel-caption{
+  left: 10%;
+  right: 10%;
+  bottom: 30px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.carousel-caption h3{
+  text-align: left;
+  font-size: 24px;
+}
+.carousel-caption p{
+  text-align: left;
+  font-size: 14px;
+}
+@media screen and (min-width: 768px){
+  .carousel-caption{
+    left: 20%;
+    right: 20%;
+  }
+  .carousel-caption h3{
+    font-size: 50px;
+  }
+  .carousel-caption p{
+    font-size: 24px;
+  }
+}
+
+.main{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.main .row + .row{
+  margin-top: 30px;
+}
+.article-head{
+  margin-bottom: 20px;
+}
+.article-list{
+  min-height: 400px;
+}
+.article-list .col-sm-8,
+.article-list .col-sm-6,
+.article-list .col-sm-4{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.post-item{
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 4px 8px rgba(0,0,0,.1);
+}
+.post-user{
+  padding-bottom: 10px;
+}
+.post-desc{
+  min-height: 100px;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.post-title{
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.post-des{
+
+}
+.post-date{
+  padding-top: 10px;
+}
+.posted{
+  color: #888;
+}

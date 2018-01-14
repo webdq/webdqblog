@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title><%= title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="webdqblog" />
+		<meta name="keywords" content="webdqblog,webdq,blog" />
+		<link rel="stylesheet" href="/public/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/public/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/public/css/login.css">
+	</head>
+	<body>
+		<div class="header">
+			<% include ../include/nav.ejs%>
+		</div>
+		<div class="main">
+			<div class="container">
+				<div class="content-wrap clearfix">
+					<div class="col-sm-offset-2 col-sm-8">
+						<div class="text-center">
+                            <% if (error) { %>
+							<div class="alert alert-danger alert-dismissible" role="alert">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <%= error %>
+							</div>
+                            <% } %>
+						</div>
+
+						<div class="content">
+							<form id="loginForm" action="/users/login" method="post"  role="form" class="form-horizontal">
+								<div class="form-group">
+									<label for="username" class="col-sm-2 control-label">用户名</label>
+									<div class="col-sm-9">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="fa fa-user"></i></span>
+											<input type="text" class="form-control" id="username" name="username" placeholder="用户名"/>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="password" class="col-sm-2 control-label">密码</label>
+									<div class="col-sm-9">
+										<div class="input-group">
+											<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+											<input type="password" class="form-control" name="password" id="password" placeholder="密码"/>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="text-center">
+										<button type="submit" class="btn btn-ok">登录</button>
+										<button id="resetBtn" type="reset" class="btn btn-cancel">重置</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% include ../include/footer.ejs%>
+		<script src="/public/js/jquery.min.js"></script>
+		<script src="/public/js/bootstrap.min.js"></script>
+		<script src="/public/js/formValidation/formValidation.min.js"></script>
+		<script src="/public/js/formValidation/bootstrap.min.js"></script>
+		<script src="/public/js/scrollreveal.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				window.sr = ScrollReveal();
+				sr.reveal('.content', { duration: 1000,rotate: { x: 0, y: 0, z: 5 } });
+
+				$("#resetBtn").on("click",function(){
+					$("#loginForm").data('formValidation').resetForm();
+				});
+
+				$("#loginForm").formValidation({
+					icon: {
+						valid: 'glyphicon glyphicon-ok',
+						invalid: 'glyphicon glyphicon-remove',
+						validating: 'glyphicon glyphicon-refresh'
+					},
+					fields: {
+						username: {
+							validators: {
+								notEmpty : {
+									message : '请输入用户名'
+								}
+							}
+						},
+						password: {
+							validators: {
+								notEmpty : {
+									message : '请输入密码'
+								}
+							}
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

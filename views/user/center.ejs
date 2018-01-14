@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title><%= title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="webdqblog" />
+		<meta name="keywords" content="webdqblog,webdq,blog" />
+		<link rel="stylesheet" href="/public/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/public/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/public/css/user_center.css">
+	</head>
+	<body>
+		<div class="header">
+			<% include ../include/nav.ejs%>
+		</div>
+			
+		<div class="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+                        <% include ../include/user_nav.ejs%>
+					</div>
+					<div class="col-sm-10">
+						<div class="panel">
+							<div class="panel-heading">
+								<h4>用户信息</h4>
+							</div>
+							<div class="panel-body">
+								<div class="user-cont">
+									<p class="text-center"><img class="img-circle" src="<%= user.avatar %>" width="100" height="100"></p>
+									<p class="text-center">用户名：<%= user.username %></p>
+									<p class="text-center">邮箱：<%= user.email %></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<% include ../include/footer.ejs%>
+
+		<script src="/public/js/jquery.min.js"></script>
+		<script src="/public/js/bootstrap.min.js"></script>
+	</body>
+</html>

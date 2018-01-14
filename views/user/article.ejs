@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title><%= title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="webdqblog" />
+		<meta name="keywords" content="webdqblog,webdq,blog" />
+		<link rel="stylesheet" href="/public/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/public/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/public/css/user_article.css">
+	</head>
+	<body>
+		<div class="header">
+			<% include ../include/nav.ejs%>
+		</div>
+			
+		<div class="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+                        <% include ../include/user_nav.ejs%>
+					</div>
+					<div class="col-sm-10">
+						<div class="panel">
+							<div class="panel-heading">
+								<h4>我的文章</h4>
+							</div>
+							<div class="panel-body">
+								<p class="text-center">
+                                    <% if (success) { %>
+									<div class="alert alert-success alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <%= success %>
+									</div>
+                                    <% } %>
+                                    <% if (error) { %>
+									<div class="alert alert-danger alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <%= error %>
+									</div>
+                                    <% } %>
+								</p>
+
+								<p class="clearfix paddend">
+									<a class="btn btn-ok pull-right" href="/users/article/add">添加文章</a>
+								</p>
+								<div class="table-responsive">
+									<table id="articleList" class="table table-bordered table-hover">
+										<thead>
+											<tr>
+												<th width="50">序号</th>
+												<th width="">标题</th>
+												<th width="">描述</th>
+												<th width="100">操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<% if(articles.length){ %>
+												<% articles.forEach(function(article,index){ %>
+												<tr>
+													<td><%= (index+1) %></td>
+													<td><a href="/articles/detail/<%= article._id %>" target="_bland"><%= article.title %></a></td>
+													<td><%= article.des %></td>
+													<td>
+														<div class="btn-group">
+															<a class="btn btn-default" href="/users/article/edit/<%= article._id %>" data-toggle="tooltip" data-placement="top" title="编辑"><i class="fa fa-edit"></i></a>
+															<a class="btn btn-default remove" aid="<%= article._id %>" href="#" data-toggle="tooltip" data-placement="top" title="删除"><i class="fa fa-remove"></i></a>
+														</div>
+													</td>
+												</tr>
+												<% }) %>
+											<% }else{ %>
+											<tr class="text-center">
+												<td colspan="4">暂无文章</td>
+											</tr>
+											<% } %>
+										</tbody>
+									</table>
+								</div>
+								<div id="pagination" class="text-right"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<% include ../include/footer.ejs%>
+
+		<div id="modalRemove" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<form id="articleRemove" method="post" action="/users/article/delete" role="form">
+					<div class="modal-body">
+						<input id="removeId" type="hidden" name="articleId">
+						<h4 class="text-center">确定删除这篇文章吗？</h4>
+					</div>
+					<div class="modal-footer">
+						<div class="text-center">
+							<button type="button" class="btn btn-cancel" data-dismiss="modal">取消</button>
+							<button id="removeEnter" type="submit" class="btn btn-ok">确定</button>
+						</div>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="/public/js/jquery.min.js"></script>
+		<script src="/public/js/bootstrap.min.js"></script>
+		<script src="/public/js/jquery-bootstrap-pagination.js"></script>
+		<script>
+			$(function(){
+                //$('[data-toggle="tooltip"]').tooltip();
+
+                $('#articleList').on('click','.remove',function(){
+                    var id = $(this).attr('aid');
+                    $('#removeId').val(id);
+                    $('#modalRemove').modal('show');
+                });
+
+				$("#pagination").pagination({
+					total_pages: <%= (totalPage == 0 ? 1 : totalPage) %>,
+					current_page: <%= pageNum %>,
+                    ignore_single_page: false,
+					callback: function(event, page) {
+						window.location.href = '/users/article?pageNum='+page+'&pageSize=10';
+					}
+				});
+            });
+		</script>
+	</body>
+</html>

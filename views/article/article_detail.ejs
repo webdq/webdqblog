@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title><%= title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="webdqblog" />
+		<meta name="keywords" content="webdqblog,webdq,blog" />
+		<link rel="stylesheet" href="/public/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/public/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/public/css/article_detail.css">
+	</head>
+	<body>
+		<div class="header">
+			<% include ../include/nav.ejs%>
+		</div>
+			
+		<div class="main">
+			<div class="container">
+				<p class="text-center">
+					<% if (success) { %>
+				<div class="alert alert-success alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<%= success %>
+				</div>
+				<% } %>
+				<% if (error) { %>
+				<div class="alert alert-danger alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<%= error %>
+				</div>
+				<% } %>
+				</p>
+
+				<div class="article">
+					<div class="panel">
+						<div class="panel-heading">
+							<div class="article-title"><%= article.title %></div>
+							<div class="article-date"><%= article.createAt.toLocaleString() %></div>
+						</div>
+						<div class="panel-body">
+							<div class="article-content"><%- article.content %></div>
+							<div class="article-user"></div>
+						</div>
+						<div class="panel-footer">
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object img-circle" src="<%= article.user.avatar %>" width="40" height="40">
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading"><%= article.user.username%></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="comments">
+					<div class="panel">
+						<div class="panel-heading">
+							<div class="article-pv">
+								<span><i class="fa fa-eye"></i> 阅读数：<%= article.pv %></span>
+								<span><i class="fa fa-commenting-o"></i> 评论数：<%= article.comments.length %></span>
+							</div>
+						</div>
+						<div class="panel-body">
+							<div class="commment-add">
+								<form action="/articles/comment" method="post">
+									<input type="hidden" name="articleId" value="<%= article._id %>">
+									<div class="form-group">
+										<label for="title" class="control-label">评论</label>
+										<textarea class="form-control" name="content" cols="30" rows="10" placeholder="请输入评论内容"></textarea>
+									</div>
+									<div class="form-group">
+										<div class="text-center">
+											<button type="submit" class="btn btn-ok">提交</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div class="comment-list">
+								<div class="comment-title">最新评论</div>
+								<% article.comments.forEach(function(comment,index){ %>
+									<div class="media">
+										<div class="media-left">
+											<a href="#"><img class="media-object" src="<%= comment.user.avatar %>" width="50" height="50"></a>
+										</div>
+										<div class="media-body">
+											<div class="comment-text"><a href="#"><%= comment.user.username %></a> : <%= comment.content %></div>
+											<div class="comment-date"><%= comment.createAt.toLocaleString() %></div>
+										</div>
+									</div>
+								<% }) %>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<% include ../include/footer.ejs%>
+
+		<script src="/public/js/jquery.min.js"></script>
+		<script src="/public/js/bootstrap.min.js"></script>
+	</body>
+</html>
